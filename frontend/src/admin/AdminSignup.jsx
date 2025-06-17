@@ -44,14 +44,14 @@ function AdminSignup() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-black to-blue-950 ">
+    <div className="bg-black ">
       <div className="h-screen container mx-auto flex  items-center justify-center text-white">
         {/* Header */}
         <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5  ">
           <div className="flex items-center space-x-2">
             <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
             <Link to={"/"} className="text-xl font-bold text-orange-500">
-              CourseHaven
+              Skillnova
             </Link>
           </div>
           <div className="flex items-center space-x-4">
@@ -73,7 +73,7 @@ function AdminSignup() {
         {/* AdminSignup Form */}
         <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-[500px] mt-20">
           <h2 className="text-2xl font-bold mb-4 text-center">
-            Welcome to <span className="text-orange-500">CourseHaven</span>
+            Welcome to <span className="text-orange-500">Skillnova</span>
           </h2>
           <p className="text-center text-gray-400 mb-6">
             Just signup to mess with dashboard!

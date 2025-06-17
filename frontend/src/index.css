@@ -4,6 +4,19 @@
 @tailwind utilities;
 
 
+.pc {
+  color: yellow;
+}
+.sc{
+  color: aqua
+}
+.tc{
+  background: rgb(5 6 5);
+}
+.kc{
+  background: rgb(2, 0, 10);
+}
+
 @layer base {
     h1,
     h2,

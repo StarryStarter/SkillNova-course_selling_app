@@ -27,9 +27,8 @@ function App() {
         {/* Other Routes */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/buy/:courseId" element={<Buy />} />
-        <Route path="/purchases" element={<Purchases/>}
-        />
-{/*         you can use below one if required 
+        <Route path="/purchases" element={<Purchases />} />
+        {/*         you can use below one if required 
  <Route
           path="/purchases"
           element={user ? <Purchases /> : <Navigate to={"/login"} />}
@@ -40,8 +39,15 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/dashboard"
-          element={admin ? <Dashboard /> : <Navigate to={"/admin/login"} />}
+          element={
+            localStorage.getItem("admin") ? (
+              <Dashboard />
+            ) : (
+              <Navigate to="/admin/login" />
+            )
+          }
         />
+
         <Route path="/admin/create-course" element={<CourseCreate />} />
         <Route path="/admin/update-course/:id" element={<UpdateCourse />} />
         <Route path="/admin/our-courses" element={<OurCourses />} />

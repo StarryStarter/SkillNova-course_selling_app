@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../public/logo.webp";
+import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -57,8 +57,10 @@ function Home() {
 
   var settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true, // make it loop continuously
+    speed: 500, // slide transition duration
+    autoplay: true,
+    autoplaySpeed: 1500, // ⏱️ 1.5 seconds between slides
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -92,39 +94,47 @@ function Home() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-black to-blue-950 ">
-      <div className="h-[1250px] md:h-[1050px] text-white container mx-auto">
+    <div>
+      <div className="">
         {/* Header */}
-        <header className="flex items-center justify-between p-6 ">
+        <header className="flex tc items-center justify-between p-6 ">
           <div className="flex items-center space-x-2">
             <img
               src={logo}
               alt=""
-              className="w-7 h-7 md:w-10 md:h-10 rounded-full"
+              className="w-7 h-7 md:w-10 md:h-10 rounded-lg"
             />
-            <h1 className="md:text-2xl text-orange-500 font-bold">
-              CourseHaven
+            <h1 className="md:text-2xl text-yellow-400 font-serif font-bold">
+              SkillNova
             </h1>
           </div>
           <div className="space-x-4">
             {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="bg-transparent text-white text-xs md:text-lg md:py-2 md:px-4 p-2 border border-white rounded"
-              >
-                Logout
-              </button>
+              <>
+                <Link
+                  to="/courses"
+                  className="bg-transparent border border-white transition duration-300 text-bolder inline-block text-white text-xs md:text-lg md:py-2 md:px-4 p-2 rounded mr-2"
+                >
+                  My Dashboard
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="bg-transparent text-white text-xs md:text-lg md:py-2 md:px-4 p-2 border border-white rounded"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <>
                 <Link
-                  to={"/login"}
-                  className="bg-transparent text-white text-xs md:text-lg md:py-2 md:px-4 p-2 border border-white rounded"
+                  to="/login"
+                  className="bg-yellow-400 text-black p-2 md:py-3 md:px-6 rounded font-semibold hover:bg-white duration-300 hover:text-black"
                 >
                   Login
                 </Link>
                 <Link
-                  to={"/signup"}
-                  className="bg-transparent text-white text-xs md:text-lg md:py-2 md:px-4 p-2 border border-white rounded"
+                  to="/signup"
+                  className="bg-yellow-400 text-black  p-2 md:py-3 md:px-6 rounded font-semibold hover:bg-white duration-300 hover:text-black"
                 >
                   Signup
                 </Link>
@@ -134,13 +144,13 @@ function Home() {
         </header>
 
         {/* Main section */}
-        <section className="text-center py-20">
-          <h1 className="text-4xl font-semibold text-orange-500">
-            CourseHaven
+        <section className="text-center bg-black py-20">
+          <h1 className="text-4xl font-semibold font-serif text-yellow-400">
+            Welcome to SkillNova
           </h1>
 
           <br />
-          <p className="text-gray-500">
+          <p className="text-white">
             Sharpen your skills with courses crafted by experts.
           </p>
           <div className="space-x-4 mt-8">
@@ -151,32 +161,39 @@ function Home() {
               Explore courses
             </Link>
             <Link
-              to={"https://www.youtube.com/learncodingofficial"}
+              to={"https://www.youtube.com"}
               className="bg-white text-black  p-2 md:py-3 md:px-6 rounded font-semibold hover:bg-green-500 duration-300 hover:text-white"
             >
               Courses videos
             </Link>
           </div>
         </section>
-        <section className="p-10">
-          <Slider className="" {...settings}>
+        <section className="p-10 bg-black">
+          <Slider {...settings}>
             {courses.map((course) => (
               <div key={course._id} className="p-4">
-                <div className="relative flex-shrink-0 w-92 transition-transform duration-300 transform hover:scale-105">
-                  <div className="bg-gray-900 rounded-lg overflow-hidden">
-                    <img
-                      className="h-32 w-full object-contain"
-                      src={course.image.url}
-                      alt=""
-                    />
-                    <div className="p-6 text-center">
-                      <h2 className="text-xl font-bold text-white">
-                        {course.title}
-                      </h2>
-                      <Link to={`/buy/${course._id}`} className="mt-8 bg-orange-500 text-white py-2 px-4 rounded-full hover:bg-blue-500 duration-300">
-                        Enroll Now
-                      </Link>
-                    </div>
+                <div className="bg-gradient-to-b from-slate-800 to-slate-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 flex flex-col h-72">
+                  {/* Image */}
+                  <img
+                    src={course.image?.url || "/default-course.jpg"}
+                    alt={course.title}
+                    className="h-36 w-full object-cover"
+                  />
+
+                  {/* Content */}
+                  <div className="p-4 flex flex-col justify-between text-center text-white flex-1">
+                    <h2 className="text-lg font-semibold">{course.title}</h2>
+
+                    <p className="text-sm text-gray-300 mt-2 line-clamp-1">
+                      {course.description}
+                    </p>
+
+                    <Link
+                      to={`/buy/${course._id}`}
+                      className="mt-4 bg-green-500 text-white py-2 px-5 rounded hover:bg-white hover:text-black transition duration-300 text-bolder inline-block"
+                    >
+                      Enroll Now
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -184,60 +201,128 @@ function Home() {
           </Slider>
         </section>
 
-        <hr />
+        {/* <hr /> */}
         {/* Footer */}
-        <footer className="my-12">
+        <footer className=" tc">
+          <br />
           <div className="grid grid-cols-1 md:grid-cols-3">
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center space-x-2">
-                <img src={logo} alt="" className="w-10 h-10 rounded-full" />
-                <h1 className="text-2xl text-orange-500 font-bold">
-                  CourseHaven
+              <div className="flex items-center space-x-4">
+                <img src={logo} alt="" className="w-10 h-10 ml-8 rounded-lg" />
+                <h1 className="text-2xl text-yellow-400 font-bold">
+                  SkillNova
                 </h1>
               </div>
               <div className="mt-3 ml-2 md:ml-8">
-                <p className="mb-2">Follow us</p>
+                <p className="text-white">
+                  Skillnova empowers learners with expert-led courses,
+                  interactive content, and a seamless experience to master
+                  skills and grow careers.
+                </p>
+                <br />
+                <p className="mb-2">
+                  <span className="text-yellow-400">Follow us</span>
+                </p>
                 <div className="flex space-x-4">
-                  <a href="">
-                    <FaFacebook className="text-2xl hover:text-blue-400 duration-300" />
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <FaFacebook className="text-2xl text-white hover:text-blue-400 duration-300" />
                   </a>
-                  <a href="">
-                    <FaInstagram className="text-2xl hover:text-pink-600 duration-300" />
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="text-2xl text-white hover:text-pink-600 duration-300" />
                   </a>
-                  <a href="">
-                    <FaTwitter className="text-2xl hover:text-blue-600 duration-300" />
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
+                  >
+                    <FaTwitter className="text-2xl text-white hover:text-blue-600 duration-300" />
                   </a>
+                  <br />
+                  <br />
                 </div>
               </div>
             </div>
 
             <div className="items-center mt-6 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold md:mb-4">connects</h3>
+              <h3 className="text-lg text-white font-semibold md:mb-4">
+                connects
+              </h3>
               <ul className=" space-y-2 text-gray-400">
                 <li className="hover:text-white cursor-pointer duration-300">
-                  youtube- learn coding
+                  <a
+                    href="https://www.youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    YouTube - Learn
+                  </a>
+                </li>
+
+                <li className="hover:text-white cursor-pointer duration-300">
+                  <a
+                    href="https://telegram.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Telegram - Learn
+                  </a>
                 </li>
                 <li className="hover:text-white cursor-pointer duration-300">
-                  telegram- learn coding
-                </li>
-                <li className="hover:text-white cursor-pointer duration-300">
-                  Github- learn coding
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub - Learn
+                  </a>
                 </li>
               </ul>
             </div>
             <div className="items-center mt-6 md:mt-0 flex flex-col">
-              <h3 className="text-lg font-semibold mb-4">
+              <h3 className="text-lg text-white font-semibold mb-4">
                 copyrights &#169; 2024
               </h3>
               <ul className=" space-y-2 text-center text-gray-400">
                 <li className="hover:text-white cursor-pointer duration-300">
-                  Terms & Conditions
+                  <a
+                    href="https://example.com/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    Terms & Conditions
+                  </a>
                 </li>
                 <li className="hover:text-white cursor-pointer duration-300">
-                  Privacy Policy
+                  <a
+                    href="https://example.com/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    Privacy Policy
+                  </a>
                 </li>
                 <li className="hover:text-white cursor-pointer duration-300">
-                  Refund & Cancellation
+                  <a
+                    href="https://example.com/refund"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    Refund & Cancellation
+                  </a>
                 </li>
               </ul>
             </div>

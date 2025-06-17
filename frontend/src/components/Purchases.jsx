@@ -100,11 +100,11 @@ function Purchases() {
                 <FaDownload className="mr-2" /> Purchases
               </a>
             </li>
-            <li className="mb-4">
+            {/* <li className="mb-4">
               <Link to="/settings" className="flex items-center">
                 <IoMdSettings className="mr-2" /> Settings
               </Link>
-            </li>
+            </li> */}
             <li>
               {isLoggedIn ? (
                 <button onClick={handleLogout} className="flex items-center">
