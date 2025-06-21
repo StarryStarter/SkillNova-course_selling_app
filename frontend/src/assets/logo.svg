@@ -1,0 +1,16 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="30" cy="30" r="30" fill="#FFD700" />
+
+  <!-- Graduation Cap Icon (top-left corner) -->
+  <path d="M15 12L30 20L15 28L0 20L15 12ZM15"
+        transform="translate(15 -5)" 
+        stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- SN Text -->
+  <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle"
+        font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold"
+        fill="black" letter-spacing="2">
+    SN
+  </text>
+</svg>
