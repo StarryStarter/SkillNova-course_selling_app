@@ -72,9 +72,9 @@ function Signup() {
         </header>
 
         {/* Signup Form */}
-        <div className="bg-white p-8 rounded-lg shadow-lg w-[500px] m-8 md:m-0 mt-20">
+        <div className="bg-green-600 p-8 rounded-lg shadow-lg w-[500px] m-8 md:m-0 mt-20">
           <h2 className="text-2xl font-bold mb-4 text-black text-center">
-            Welcome to <span className="text-yellow-400">SkillNova</span>
+            Welcome to <span className="text-yellow-500">SkillNova</span>
           </h2>
           <p className="text-center text-black mb-6">Just Signup To Join Us!</p>
 
@@ -88,7 +88,7 @@ function Signup() {
                 id="firstname"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full p-3 rounded-md text-white kc border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                className="w-full p-3 rounded-md text-black border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
                 placeholder="Type your firstname"
               />
             </div>
@@ -101,7 +101,7 @@ function Signup() {
                 id="lastname"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full p-3 rounded-md text-white kc border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                className="w-full p-3 rounded-md text-black border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
                 placeholder="Type your lastname"
                 required
               />
@@ -116,7 +116,7 @@ function Signup() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 rounded-md text-white kc border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                className="w-full p-3 rounded-md text-black border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
                 placeholder="Enter your email"
                 required
               />
@@ -131,7 +131,7 @@ function Signup() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-3 rounded-md text-white kc border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full p-3 rounded-md text-black border border-green-700 focus:outline-none focus:ring-1 focus:ring-green-500"
                   placeholder="********"
                   required
                 />
@@ -147,7 +147,7 @@ function Signup() {
             )}
             <button
               type="submit"
-              className="w-full bg-yellow-600 hover:bg-green-600 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-yellow-500 hover:bg-green-800 text-white py-3 px-6 rounded-md transition"
             >
               Signup
             </button>

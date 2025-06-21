@@ -9,6 +9,8 @@ import { RiHome2Fill } from "react-icons/ri";
 import { HiMenu, HiX } from "react-icons/hi"; // Icons for sidebar toggle
 import { Link, useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../utils/utils";
+import logo from "../assets/logo.webp";
+
 
 function Purchases() {
   const [purchases, setPurchase] = useState([]);
@@ -76,28 +78,41 @@ function Purchases() {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex  h-screen">
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 bg-gray-100 p-5 transform ${
+        className={`fixed inset-y-0 left-0 bg-black p-5 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out w-64 z-50`}
       >
+        
         <nav>
+          <div className="flex items-center mb-10 mt-10 md:mt-0">
+                    <img src={logo} alt="Profile" className="rounded-lg h-12 w-12" />
+                  </div>
           <ul className="mt-16 md:mt-0">
             <li className="mb-4">
-              <Link to="/" className="flex items-center">
-                <RiHome2Fill className="mr-2" /> Home
+              <Link
+                to="/"
+                className="flex items-center  text-white  hover:text-blue-500 "
+              >
+                <RiHome2Fill className="mr-2 " /> Home
               </Link>
             </li>
             <li className="mb-4">
-              <Link to="/courses" className="flex items-center">
+              <Link
+                to="/courses"
+                className="flex items-center  text-white  hover:text-blue-500 "
+              >
                 <FaDiscourse className="mr-2" /> Courses
               </Link>
             </li>
             <li className="mb-4">
-              <a href="#" className="flex items-center text-blue-500">
-                <FaDownload className="mr-2" /> Purchases
+              <a
+                href="#"
+                className="flex items-center  text-white  hover:text-blue-500 "
+              >
+                <FaDownload className="mr-2 " /> Purchases
               </a>
             </li>
             {/* <li className="mb-4">
@@ -107,7 +122,10 @@ function Purchases() {
             </li> */}
             <li>
               {isLoggedIn ? (
-                <button onClick={handleLogout} className="flex items-center">
+                <button
+                  onClick={handleLogout}
+                  className="flex text-white  hover:text-blue-500 items-center"
+                >
                   <IoLogOut className="mr-2" /> Logout
                 </button>
               ) : (
@@ -134,7 +152,7 @@ function Purchases() {
 
       {/* Main Content */}
       <div
-        className={`flex-1 p-8 bg-gray-50 transition-all duration-300 ${
+        className={`flex-1 p-8 bg-black transition-all duration-300 ${
           isSidebarOpen ? "ml-64" : "ml-0"
         } md:ml-64`}
       >
@@ -153,34 +171,34 @@ function Purchases() {
             {purchases.map((purchase, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md p-6 mb-6"
+                className="bg-black border border-green-500 rounded-lg shadow-md p-6 mb-6"
               >
                 <div className="flex flex-col items-center space-y-4">
                   {/* Course Image */}
                   <img
-                    className="rounded-lg w-full h-48 object-cover"
+                    className=" w-full h-32 object-fit"
                     src={
                       purchase.image?.url || "https://via.placeholder.com/200"
                     }
                     alt={purchase.title}
                   />
                   <div className="text-center">
-                    <h3 className="text-lg font-bold">{purchase.title}</h3>
+                    <h3 className="text-lg text-white font-bold">{purchase.title}</h3>
                     <p className="text-gray-500">
                       {purchase.description.length > 100
                         ? `${purchase.description.slice(0, 100)}...`
                         : purchase.description}
                     </p>
-                    <span className="text-green-700 font-semibold text-sm">
+                    {/* <span className="text-green-700 font-semibold text-sm">
                       ${purchase.price} only
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="text-gray-500">You have no purchases yet.</p>
+          <p className="text-white">You have no purchases yet.</p>
         )}
       </div>
     </div>

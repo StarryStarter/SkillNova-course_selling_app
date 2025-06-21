@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../public/logo.webp";
+import logo from "../assets/logo.webp";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { BACKEND_URL } from "../utils/utils";
@@ -20,9 +20,9 @@ function Dashboard() {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-100 p-5">
+      <div className="w-64 bg-green-900 p-5">
         <div className="flex items-center flex-col mb-10">
-          <img src={logo} alt="Profile" className="rounded-full h-20 w-20" />
+          <img src={logo} alt="Profile" className="rounded-lg h-20 w-20" />
           <h2 className="text-lg font-semibold mt-4">I'm Admin</h2>
         </div>
         <nav className="flex flex-col space-y-4">

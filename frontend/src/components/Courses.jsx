@@ -189,7 +189,9 @@ function Courses() {
                   <img
                     src={course.image?.url || "/default-course.jpg"}
                     alt={course.title}
+                    className="w-full h-32 object-fit"
                   />
+                  <br />
 
                   <h2 className="font-bold text-white text-lg mb-2">
                     {course.title}
@@ -202,7 +204,9 @@ function Courses() {
                   <div className="flex justify-between items-center mb-4">
                     <span className="font-bold text-white text-xl">
                       ₹{course.price}{" "}
-                      <span className="text-gray-500 line-through">5999</span>
+                      <span className="text-gray-500 line-through">
+                        ₹{course.price * 1.2}
+                      </span>
                     </span>
                     <span className="text-green-600">20% off</span>
                   </div>

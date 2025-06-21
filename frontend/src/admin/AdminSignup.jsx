@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../public/logo.webp";
+import logo from "../assets/logo.webp";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -49,21 +49,21 @@ function AdminSignup() {
         {/* Header */}
         <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5  ">
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
-            <Link to={"/"} className="text-xl font-bold text-orange-500">
+            <img src={logo} alt="Logo" className="w-10 h-10 rounded-lg" />
+            <Link to={"/"} className="text-xl font-bold font-serif text-yellow-500">
               Skillnova
             </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Link
               to={"/admin/login"}
-              className="bg-transparent border border-gray-500 py-2 px-4 rounded-md"
+              className="bg-transparent border border-gray-500 hover:text-yellow-400 py-2 px-4 rounded-md"
             >
               Login
             </Link>
             <Link
               to={"/courses"}
-              className="bg-orange-500 py-2 px-4 rounded-md"
+              className="bg-yellow-500 py-2 text-black px-4 rounded-md"
             >
               Join now
             </Link>
@@ -71,17 +71,17 @@ function AdminSignup() {
         </header>
 
         {/* AdminSignup Form */}
-        <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-[500px] mt-20">
+        <div className="bg-green-700 p-8 rounded-lg shadow-lg w-[500px] mt-20">
           <h2 className="text-2xl font-bold mb-4 text-center">
-            Welcome to <span className="text-orange-500">Skillnova</span>
+            Welcome to <span className="text-yellow-600">Skillnova</span>
           </h2>
-          <p className="text-center text-gray-400 mb-6">
+          <p className="text-center text-black mb-6">
             Just signup to mess with dashboard!
           </p>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="firstname" className=" text-gray-400 mb-2">
+              <label htmlFor="firstname" className="  text-black mb-2">
                 Firstname
               </label>
               <input
@@ -89,12 +89,12 @@ function AdminSignup() {
                 id="firstname"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-md border  text-black border-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Type your firstname"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="lastname" className=" text-gray-400 mb-2">
+              <label htmlFor="lastname" className=" text-black mb-2">
                 Lastname
               </label>
               <input
@@ -102,14 +102,14 @@ function AdminSignup() {
                 id="lastname"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-md border  text-black border-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Type your lastname"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label htmlFor="email" className=" text-gray-400 mb-2">
+              <label htmlFor="email" className="  text-black mb-2">
                 Email
               </label>
               <input
@@ -117,13 +117,13 @@ function AdminSignup() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-md  text-black border border-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="name@email.com"
                 required
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className=" text-gray-400 mb-2">
+              <label htmlFor="password" className="  text-black mb-2">
                 Password
               </label>
               <div className="relative">
@@ -132,7 +132,7 @@ function AdminSignup() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 rounded-md border  text-black border-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="********"
                   required
                 />
@@ -148,7 +148,7 @@ function AdminSignup() {
             )}
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-blue-600 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-yellow-400 text-black hover:bg-green-900 py-3 px-6 rounded-md transition"
             >
               Signup
             </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../public/logo.webp";
+import logo from "../assets/logo.webp";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -46,21 +46,21 @@ function AdminLogin() {
         {/* Header */}
         <header className="absolute top-0 left-0 w-full flex justify-between items-center p-5  ">
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
-            <Link to={"/"} className="text-xl font-bold text-orange-500">
+            <img src={logo} alt="Logo" className="w-10 h-10 rounded-lg" />
+            <Link to={"/"} className="text-xl font-bold font-serif text-yellow-500">
               Skillnova
             </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Link
               to={"/admin/signup"}
-              className="bg-transparent border border-gray-500 py-2 px-4 rounded-md"
+              className="bg-transparent border border-gray-500 py-2 px-4 hover:text-yellow-300 rounded-md"
             >
               Signup
             </Link>
             <Link
               to={"/courses"}
-              className="bg-orange-500 py-2 px-4 rounded-md"
+              className="bg-yellow-400 text-black py-2 px-4 rounded-md"
             >
               Join now
             </Link>
@@ -68,11 +68,11 @@ function AdminLogin() {
         </header>
 
         {/* AdminLogin Form */}
-        <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-[500px] mt-20">
+        <div className="bg-green-700 p-8 rounded-lg shadow-lg w-[500px] mt-20">
           <h2 className="text-2xl font-bold mb-4 text-center">
-            Welcome to <span className="text-orange-500">Skillnova</span>
+            Welcome to <span className="text-yellow-600">Skillnova</span>
           </h2>
-          <p className="text-center text-gray-400 mb-6">
+          <p className="text-center text-black mb-6">
             Log in to access admin dashboard!
           </p>
 
@@ -86,7 +86,7 @@ function AdminLogin() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-md border border-green-700 text-black focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="name@email.com"
                 required
               />
@@ -101,7 +101,7 @@ function AdminLogin() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 rounded-md border text-black border-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="********"
                   required
                 />
@@ -117,7 +117,7 @@ function AdminLogin() {
             )}
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-blue-600 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-yellow-500 hover:bg-green-900 text-black py-3 px-6 rounded-md transition"
             >
               Login
             </button>

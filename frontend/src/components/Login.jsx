@@ -68,9 +68,9 @@ function Login() {
         </header>
 
         {/* Login Form */}
-        <div className="bg-gray-500 p-8 rounded-lg shadow-lg w-[500px] m-8 md:m-0 mt-20">
+        <div className="bg-green-700 p-8 rounded-lg shadow-lg w-[500px] m-8 md:m-0 mt-20">
           <h2 className="text-2xl font-bold text-black mb-4 text-center">
-            Welcome to <span className="text-yellow-500">CourseHaven</span>
+            Welcome to <span className="text-yellow-600">SkillNova</span>
           </h2>
           <p className="text-center text-black mb-6">
             Log in to access paid content!
@@ -86,7 +86,7 @@ function Login() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 rounded-md kc border border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                className="w-full p-3 rounded-md text-black "
                 placeholder="Enter your email"
                 required
               />
@@ -101,7 +101,7 @@ function Login() {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-3 rounded-md kc border border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full p-3 rounded-md border text-black"
                   placeholder="********"
                   required
                 />
@@ -117,7 +117,7 @@ function Login() {
             )}
             <button
               type="submit"
-              className="w-full bg-yellow-600 hover:bg-green-600 text-white py-3 px-6 rounded-md transition"
+              className="w-full bg-yellow-500 hover:bg-green-900 text-white py-3 px-6 rounded-md transition"
             >
               Login
             </button>
